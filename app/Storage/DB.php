@@ -1,22 +1,35 @@
 <?php
-Namespace Storage;
+
+namespace Storage;
+
+use mysqli;
+
 class DB
 {
-    public function __construct()
+
+    /**
+     * Connect to Database
+     * @return mysqli
+     */
+    public static function conn(): mysqli
     {
+        //Database consfiguration
         $host = "localhost";
-        $user = "user";
+        $user = "root";
         $password = "";
-        $db_name = "";
+        $db_name = "natural";
+
         $db = new \mysqli($host, $user, $password, $db_name);
+
         if (mysqli_connect_errno()) {
             echo 'Database connection failed with following errors: ' . mysqli_connect_error();
             die();
         }
+
         return $db;
     }
-    public static function close($db)
+    public static function close($db): void
     {
-        mysqli_close($db);
+        $db->close();
     }
 }

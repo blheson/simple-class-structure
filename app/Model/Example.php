@@ -1,14 +1,17 @@
 <?php
 
 namespace Model;
-use Storage\DB;
+
+use mysqli_result;
+use Storage\DB as DB;
+
 class Example
 {
     /**
      * Check if Example class is connected
      */
-    public static function check(): string
+    public static function check():mysqli_result
     {
-        return "I am a method from the Example namespace";
+        return DB::Conn()->query("Select * From Users");
     }
 }
