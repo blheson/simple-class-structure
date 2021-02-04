@@ -9,9 +9,17 @@ class Example
 {
     /**
      * Check if Example class is connected
+     * @return mysqli_result|bool|null
      */
-    public static function check():mysqli_result
+    public static function check()
     {
-        return DB::Conn()->query("Select * From Users");
+        
+        try {
+           return DB::Conn()->query("Select * From Users");
+        } catch (\Error $e) {
+            echo $e->getMessage();
+            die();
+        }
+        
     }
 }

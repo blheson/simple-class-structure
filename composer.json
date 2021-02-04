@@ -1,0 +1,10 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Storage\\": "app/Storage/",
+            "Middleware\\": "app/Middleware/",
+            "Controller\\": "app/Controller/",
+            "Model\\": "app/Model/"
+        }
+    }
+}

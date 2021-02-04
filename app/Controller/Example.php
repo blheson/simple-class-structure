@@ -13,8 +13,9 @@ class Example
     {
         return "Hello, I am a method in class Controller/Example";
     }
-    public static function check(): array
+    public static function check():array
     {
-        return Process::objectToArray(eg::check());
+        $result = eg::check();
+        return Process::objectToArray($result);
     }
 }
